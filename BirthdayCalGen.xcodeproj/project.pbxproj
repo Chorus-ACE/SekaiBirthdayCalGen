@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C3DFB362EAFC8500004E1F5 /* CommandLineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DFB342EAFC8500004E1F5 /* CommandLineEntry.swift */; };
+		8C3DFB392EAFC8650004E1F5 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8C3DFB382EAFC8650004E1F5 /* ArgumentParser */; };
+		8C3DFB3C2EAFC89B0004E1F5 /* DoriKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3DFB3B2EAFC89B0004E1F5 /* DoriKit.framework */; };
+		8C3DFB3D2EAFC89B0004E1F5 /* DoriKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3DFB3B2EAFC89B0004E1F5 /* DoriKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C3DFB402EAFC9730004E1F5 /* CalendarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DFB3F2EAFC96A0004E1F5 /* CalendarBuilder.swift */; };
+		8C3DFB422EAFDCE20004E1F5 /* StandardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DFB412EAFDCE20004E1F5 /* StandardError.swift */; };
+		8C3DFB442EAFDE6A0004E1F5 /* LocalizedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DFB432EAFDE650004E1F5 /* LocalizedResources.swift */; };
+		8C3DFB462EAFE07A0004E1F5 /* IdentifierGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DFB452EAFE0710004E1F5 /* IdentifierGenerator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8C3DFB282EAFC84C0004E1F5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		8C3DFB3E2EAFC89B0004E1F5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8C3DFB3D2EAFC89B0004E1F5 /* DoriKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8C3DFB2A2EAFC84C0004E1F5 /* BirthdayCalGen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BirthdayCalGen; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C3DFB342EAFC8500004E1F5 /* CommandLineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineEntry.swift; sourceTree = "<group>"; };
+		8C3DFB3B2EAFC89B0004E1F5 /* DoriKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DoriKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C3DFB3F2EAFC96A0004E1F5 /* CalendarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBuilder.swift; sourceTree = "<group>"; };
+		8C3DFB412EAFDCE20004E1F5 /* StandardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardError.swift; sourceTree = "<group>"; };
+		8C3DFB432EAFDE650004E1F5 /* LocalizedResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedResources.swift; sourceTree = "<group>"; };
+		8C3DFB452EAFE0710004E1F5 /* IdentifierGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierGenerator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C3DFB272EAFC84C0004E1F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C3DFB392EAFC8650004E1F5 /* ArgumentParser in Frameworks */,
+				8C3DFB3C2EAFC89B0004E1F5 /* DoriKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C3DFB212EAFC84C0004E1F5 = {
+			isa = PBXGroup;
+			children = (
+				8C3DFB352EAFC8500004E1F5 /* BirthdayCalGen */,
+				8C3DFB3A2EAFC89B0004E1F5 /* Frameworks */,
+				8C3DFB2B2EAFC84C0004E1F5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8C3DFB2B2EAFC84C0004E1F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C3DFB2A2EAFC84C0004E1F5 /* BirthdayCalGen */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C3DFB352EAFC8500004E1F5 /* BirthdayCalGen */ = {
+			isa = PBXGroup;
+			children = (
+				8C3DFB342EAFC8500004E1F5 /* CommandLineEntry.swift */,
+				8C3DFB412EAFDCE20004E1F5 /* StandardError.swift */,
+				8C3DFB3F2EAFC96A0004E1F5 /* CalendarBuilder.swift */,
+				8C3DFB452EAFE0710004E1F5 /* IdentifierGenerator.swift */,
+				8C3DFB432EAFDE650004E1F5 /* LocalizedResources.swift */,
+			);
+			path = BirthdayCalGen;
+			sourceTree = "<group>";
+		};
+		8C3DFB3A2EAFC89B0004E1F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C3DFB3B2EAFC89B0004E1F5 /* DoriKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C3DFB292EAFC84C0004E1F5 /* BirthdayCalGen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C3DFB312EAFC84C0004E1F5 /* Build configuration list for PBXNativeTarget "BirthdayCalGen" */;
+			buildPhases = (
+				8C3DFB262EAFC84C0004E1F5 /* Sources */,
+				8C3DFB272EAFC84C0004E1F5 /* Frameworks */,
+				8C3DFB282EAFC84C0004E1F5 /* CopyFiles */,
+				8C3DFB3E2EAFC89B0004E1F5 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BirthdayCalGen;
+			packageProductDependencies = (
+				8C3DFB382EAFC8650004E1F5 /* ArgumentParser */,
+			);
+			productName = BirthdayCalGen;
+			productReference = 8C3DFB2A2EAFC84C0004E1F5 /* BirthdayCalGen */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C3DFB222EAFC84C0004E1F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					8C3DFB292EAFC84C0004E1F5 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 8C3DFB252EAFC84C0004E1F5 /* Build configuration list for PBXProject "BirthdayCalGen" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C3DFB212EAFC84C0004E1F5;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8C3DFB372EAFC8650004E1F5 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8C3DFB2B2EAFC84C0004E1F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C3DFB292EAFC84C0004E1F5 /* BirthdayCalGen */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C3DFB262EAFC84C0004E1F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C3DFB422EAFDCE20004E1F5 /* StandardError.swift in Sources */,
+				8C3DFB442EAFDE6A0004E1F5 /* LocalizedResources.swift in Sources */,
+				8C3DFB362EAFC8500004E1F5 /* CommandLineEntry.swift in Sources */,
+				8C3DFB402EAFC9730004E1F5 /* CalendarBuilder.swift in Sources */,
+				8C3DFB462EAFE07A0004E1F5 /* IdentifierGenerator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8C3DFB2F2EAFC84C0004E1F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B57D8PP775;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8C3DFB302EAFC84C0004E1F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = B57D8PP775;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		8C3DFB322EAFC84C0004E1F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B57D8PP775;
+				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = ./;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memz233.Greatdori.BirthdayCalGen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8C3DFB332EAFC84C0004E1F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B57D8PP775;
+				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = ./;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memz233.Greatdori.BirthdayCalGen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C3DFB252EAFC84C0004E1F5 /* Build configuration list for PBXProject "BirthdayCalGen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C3DFB2F2EAFC84C0004E1F5 /* Debug */,
+				8C3DFB302EAFC84C0004E1F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C3DFB312EAFC84C0004E1F5 /* Build configuration list for PBXNativeTarget "BirthdayCalGen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C3DFB322EAFC84C0004E1F5 /* Debug */,
+				8C3DFB332EAFC84C0004E1F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8C3DFB372EAFC8650004E1F5 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C3DFB382EAFC8650004E1F5 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C3DFB372EAFC8650004E1F5 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 8C3DFB222EAFC84C0004E1F5 /* Project object */;
+}
