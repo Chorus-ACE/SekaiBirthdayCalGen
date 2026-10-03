@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C3DFB362EAFC8500004E1F5 /* CommandLineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DFB342EAFC8500004E1F5 /* CommandLineEntry.swift */; };
 		8C3DFB392EAFC8650004E1F5 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8C3DFB382EAFC8650004E1F5 /* ArgumentParser */; };
-		8C3DFB3C2EAFC89B0004E1F5 /* DoriKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3DFB3B2EAFC89B0004E1F5 /* DoriKit.framework */; };
-		8C3DFB3D2EAFC89B0004E1F5 /* DoriKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3DFB3B2EAFC89B0004E1F5 /* DoriKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C3DFB3C2EAFC89B0004E1F5 /* SekaiKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7850004301CE604005B6B45 /* SekaiKit */; };
 		8C3DFB402EAFC9730004E1F5 /* CalendarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DFB3F2EAFC96A0004E1F5 /* CalendarBuilder.swift */; };
 		8C3DFB422EAFDCE20004E1F5 /* StandardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DFB412EAFDCE20004E1F5 /* StandardError.swift */; };
 		8C3DFB442EAFDE6A0004E1F5 /* LocalizedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3DFB432EAFDE650004E1F5 /* LocalizedResources.swift */; };
@@ -33,7 +32,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8C3DFB3D2EAFC89B0004E1F5 /* DoriKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,9 +39,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C3DFB2A2EAFC84C0004E1F5 /* BirthdayCalGen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BirthdayCalGen; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C3DFB2A2EAFC84C0004E1F5 /* SekaiBirthdayCalGen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SekaiBirthdayCalGen; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C3DFB342EAFC8500004E1F5 /* CommandLineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineEntry.swift; sourceTree = "<group>"; };
-		8C3DFB3B2EAFC89B0004E1F5 /* DoriKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DoriKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C3DFB3F2EAFC96A0004E1F5 /* CalendarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBuilder.swift; sourceTree = "<group>"; };
 		8C3DFB412EAFDCE20004E1F5 /* StandardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardError.swift; sourceTree = "<group>"; };
 		8C3DFB432EAFDE650004E1F5 /* LocalizedResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedResources.swift; sourceTree = "<group>"; };
@@ -56,7 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C3DFB392EAFC8650004E1F5 /* ArgumentParser in Frameworks */,
-				8C3DFB3C2EAFC89B0004E1F5 /* DoriKit.framework in Frameworks */,
+				8C3DFB3C2EAFC89B0004E1F5 /* SekaiKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +63,7 @@
 		8C3DFB212EAFC84C0004E1F5 = {
 			isa = PBXGroup;
 			children = (
-				8C3DFB352EAFC8500004E1F5 /* BirthdayCalGen */,
+				8C3DFB352EAFC8500004E1F5 /* SekaiBirthdayCalGen */,
 				8C3DFB3A2EAFC89B0004E1F5 /* Frameworks */,
 				8C3DFB2B2EAFC84C0004E1F5 /* Products */,
 			);
@@ -75,12 +72,12 @@
 		8C3DFB2B2EAFC84C0004E1F5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C3DFB2A2EAFC84C0004E1F5 /* BirthdayCalGen */,
+				8C3DFB2A2EAFC84C0004E1F5 /* SekaiBirthdayCalGen */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C3DFB352EAFC8500004E1F5 /* BirthdayCalGen */ = {
+		8C3DFB352EAFC8500004E1F5 /* SekaiBirthdayCalGen */ = {
 			isa = PBXGroup;
 			children = (
 				8C3DFB342EAFC8500004E1F5 /* CommandLineEntry.swift */,
@@ -89,13 +86,12 @@
 				8C3DFB452EAFE0710004E1F5 /* IdentifierGenerator.swift */,
 				8C3DFB432EAFDE650004E1F5 /* LocalizedResources.swift */,
 			);
-			path = BirthdayCalGen;
+			path = SekaiBirthdayCalGen;
 			sourceTree = "<group>";
 		};
 		8C3DFB3A2EAFC89B0004E1F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8C3DFB3B2EAFC89B0004E1F5 /* DoriKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -103,9 +99,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C3DFB292EAFC84C0004E1F5 /* BirthdayCalGen */ = {
+		8C3DFB292EAFC84C0004E1F5 /* SekaiBirthdayCalGen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C3DFB312EAFC84C0004E1F5 /* Build configuration list for PBXNativeTarget "BirthdayCalGen" */;
+			buildConfigurationList = 8C3DFB312EAFC84C0004E1F5 /* Build configuration list for PBXNativeTarget "SekaiBirthdayCalGen" */;
 			buildPhases = (
 				8C3DFB262EAFC84C0004E1F5 /* Sources */,
 				8C3DFB272EAFC84C0004E1F5 /* Frameworks */,
@@ -116,12 +112,13 @@
 			);
 			dependencies = (
 			);
-			name = BirthdayCalGen;
+			name = SekaiBirthdayCalGen;
 			packageProductDependencies = (
+                B7850004301CE604005B6B45 /* SekaiKit */,
 				8C3DFB382EAFC8650004E1F5 /* ArgumentParser */,
 			);
-			productName = BirthdayCalGen;
-			productReference = 8C3DFB2A2EAFC84C0004E1F5 /* BirthdayCalGen */;
+			productName = SekaiBirthdayCalGen;
+			productReference = 8C3DFB2A2EAFC84C0004E1F5 /* SekaiBirthdayCalGen */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -139,7 +136,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8C3DFB252EAFC84C0004E1F5 /* Build configuration list for PBXProject "BirthdayCalGen" */;
+			buildConfigurationList = 8C3DFB252EAFC84C0004E1F5 /* Build configuration list for PBXProject "SekaiBirthdayCalGen" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -149,6 +146,7 @@
 			mainGroup = 8C3DFB212EAFC84C0004E1F5;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+                B7850003301CE604005B6B45 /* XCLocalSwiftPackageReference "../SekaiKit" */,
 				8C3DFB372EAFC8650004E1F5 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -156,7 +154,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C3DFB292EAFC84C0004E1F5 /* BirthdayCalGen */,
+				8C3DFB292EAFC84C0004E1F5 /* SekaiBirthdayCalGen */,
 			);
 		};
 /* End PBXProject section */
@@ -305,7 +303,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				LD_RUNPATH_SEARCH_PATHS = ./;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.memz233.Greatdori.BirthdayCalGen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memz233.GreatSekai.SekaiBirthdayCalGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
@@ -321,7 +319,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				LD_RUNPATH_SEARCH_PATHS = ./;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.memz233.Greatdori.BirthdayCalGen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memz233.GreatSekai.SekaiBirthdayCalGen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
@@ -332,7 +330,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C3DFB252EAFC84C0004E1F5 /* Build configuration list for PBXProject "BirthdayCalGen" */ = {
+		8C3DFB252EAFC84C0004E1F5 /* Build configuration list for PBXProject "SekaiBirthdayCalGen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C3DFB2F2EAFC84C0004E1F5 /* Debug */,
@@ -341,7 +339,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C3DFB312EAFC84C0004E1F5 /* Build configuration list for PBXNativeTarget "BirthdayCalGen" */ = {
+		8C3DFB312EAFC84C0004E1F5 /* Build configuration list for PBXNativeTarget "SekaiBirthdayCalGen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C3DFB322EAFC84C0004E1F5 /* Debug */,
@@ -363,7 +361,12 @@
 		};
 /* End XCRemoteSwiftPackageReference section */
 
+/* Begin XCLocalSwiftPackageReference section */
+        B7850003301CE604005B6B45 = { isa = XCLocalSwiftPackageReference; relativePath = ../SekaiKit; };
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+        B7850004301CE604005B6B45 /* SekaiKit */ = { isa = XCSwiftPackageProductDependency; package = B7850003301CE604005B6B45; productName = SekaiKit; };
 		8C3DFB382EAFC8650004E1F5 /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8C3DFB372EAFC8650004E1F5 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;

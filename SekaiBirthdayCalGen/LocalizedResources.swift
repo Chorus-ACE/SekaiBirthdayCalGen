@@ -12,15 +12,15 @@
 //
 //===----------------------------------------------------------------------===//
 
-import DoriKit
+import SekaiKit
 import Foundation
 
 let localizedCalendarName = LocalizedData(
-    _jp: "ガルパ誕生日",
-    en: "GBP Birthdays",
-    tw: "GBP生日",
-    cn: "GBP生日",
-    kr: "GBP생일"
+    _jp: "プロセカ誕生日",
+    en: "Project Sekai Birthdays",
+    tw: "世界計畫生日",
+    cn: "世界计划生日",
+    kr: "프로젝트 세카이 생일"
 )
 
 let localizedCategoryName = LocalizedData(
@@ -47,10 +47,26 @@ let localizedBirthdayPrompt = LocalizedData(
     kr: "%@의생일"
 )
 
+let localizedAnniversaryPrompt = LocalizedData(
+    _jp: "%@の記念日",
+    en: "%@’s Anniversary",
+    tw: "%@的紀念日",
+    cn: "%@的纪念日",
+    kr: "%@의 기념일"
+)
+
+let localizedAnniversaryCategoryName = LocalizedData(
+    _jp: "記念日",
+    en: "Anniversary",
+    tw: "紀念日",
+    cn: "纪念日",
+    kr: "기념일"
+)
+
 let localizedLangIdentifier = LocalizedData(
-    _jp: "ja_JP",
-    en: "en_US",
-    tw: "zh_TW",
-    cn: "zh_CN",
-    kr: "ko_KR"
+    _jp: "ja-JP",
+    en: "en-US",
+    tw: "zh-TW",
+    cn: "zh-CN",
+    kr: "ko-KR"
 )

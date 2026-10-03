@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8C3DFB292EAFC84C0004E1F5"
-               BuildableName = "BirthdayCalGen"
-               BlueprintName = "BirthdayCalGen"
-               ReferencedContainer = "container:BirthdayCalGen.xcodeproj">
+               BuildableName = "SekaiBirthdayCalGen"
+               BlueprintName = "SekaiBirthdayCalGen"
+               ReferencedContainer = "container:SekaiBirthdayCalGen.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8C3DFB292EAFC84C0004E1F5"
-            BuildableName = "BirthdayCalGen"
-            BlueprintName = "BirthdayCalGen"
-            ReferencedContainer = "container:BirthdayCalGen.xcodeproj">
+            BuildableName = "SekaiBirthdayCalGen"
+            BlueprintName = "SekaiBirthdayCalGen"
+            ReferencedContainer = "container:SekaiBirthdayCalGen.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8C3DFB292EAFC84C0004E1F5"
-            BuildableName = "BirthdayCalGen"
-            BlueprintName = "BirthdayCalGen"
-            ReferencedContainer = "container:BirthdayCalGen.xcodeproj">
+            BuildableName = "SekaiBirthdayCalGen"
+            BlueprintName = "SekaiBirthdayCalGen"
+            ReferencedContainer = "container:SekaiBirthdayCalGen.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,0 +1,2 @@
+# Preserve the CRLF line endings required by iCalendar files.
+*.ics -text whitespace=cr-at-eol

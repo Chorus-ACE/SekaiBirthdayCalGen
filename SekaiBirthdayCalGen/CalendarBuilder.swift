@@ -20,7 +20,20 @@ final class CalendarBuilder {
     private var _context: [String] = []
     
     func makeResult() -> String {
-        return _context.joined(separator: "\r\n")
+        return _context.map { line in
+            var folded = ""
+            var byteCount = 0
+            for scalar in line.unicodeScalars {
+                let text = String(scalar)
+                if byteCount + text.utf8.count > 75 {
+                    folded += "\r\n "
+                    byteCount = 1
+                }
+                folded += text
+                byteCount += text.utf8.count
+            }
+            return folded
+        }.joined(separator: "\r\n") + "\r\n"
     }
     
     func emitCalendarStart(providerID: String, calendarName: String?) {
@@ -29,7 +42,7 @@ final class CalendarBuilder {
         _context.append("PRODID:\(providerID)")
         _context.append("CALSCALE:GREGORIAN")
         if let calendarName {
-            _context.append("X-WR-CALNAME:\(calendarName)")
+            _context.append("X-WR-CALNAME:\(escaped(calendarName))")
         }
     }
     func emitCalendarEnd() {
@@ -84,7 +97,7 @@ final class CalendarBuilder {
         if let language {
             result += ";LANGUAGE=\(language)"
         }
-        result += ":\(summary)"
+        result += ":\(escaped(summary))"
         _context.append(result)
     }
     
@@ -108,13 +121,14 @@ final class CalendarBuilder {
         if let language {
             result += ";LANGUAGE=\(language)"
         }
-        result += ":\(categories.joined(separator: ","))"
+        result += ":\(categories.map(escaped).joined(separator: ","))"
         _context.append(result)
     }
     
-    func emitAlarmStart() {
+    func emitAlarmStart(description: String) {
         _context.append("BEGIN:VALARM")
         _context.append("ACTION:DISPLAY")
+        _context.append("DESCRIPTION:\(escaped(description))")
     }
     func emitAlarmEnd() {
         _context.append("END:VALARM")
@@ -148,14 +162,22 @@ final class CalendarBuilder {
         _context.append("URL;VALUE=URI:\(url)")
     }
     
+    // Modified for standards-compliant text, line folding, and UTC timestamps.
+    private func escaped(_ value: String) -> String {
+        value.replacingOccurrences(of: "\\", with: "\\\\")
+            .replacingOccurrences(of: "\r\n", with: "\n")
+            .replacingOccurrences(of: "\r", with: "\n")
+            .replacingOccurrences(of: "\n", with: "\\n")
+            .replacingOccurrences(of: ";", with: "\\;")
+            .replacingOccurrences(of: ",", with: "\\,")
+    }
+
     private func formalDateString(for date: Date, in timeZone: TimeZone) -> String {
-        let secondsFromGMT = timeZone.secondsFromGMT(for: date)
-        let utcDate = date.addingTimeInterval(-Double(secondsFromGMT))
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
-        return formatter.string(from: utcDate)
+        return formatter.string(from: date)
     }
     private func formalDayString(for date: Date, in timeZone: TimeZone) -> String {
         let formatter = DateFormatter()

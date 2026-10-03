@@ -14,15 +14,22 @@
 
 import Foundation
 import ArgumentParser
-@_private(sourceFile: "DoriAPI.swift") import DoriKit
+import SekaiKit
+
+// Modified for Project Sekai: regional names and birthdays come from SekaiKit.
 
 @main
 struct CommandLineEntry: AsyncParsableCommand {
+    static let configuration = CommandConfiguration(commandName: "SekaiBirthdayCalGen")
+
     @Option(help: "A directory for output files")
     var output: String
     
+    @Option(help: "Optional directory containing character.aar and event.aar (for offline generation)")
+    var dataDirectory: String?
+
     mutating func validate() throws {
-        while output.hasSuffix("/") {
+        while output.count > 1 && output.hasSuffix("/") {
             output.removeLast()
         }
         var isDirectory: ObjCBool = false
@@ -36,80 +43,91 @@ struct CommandLineEntry: AsyncParsableCommand {
     
     mutating func run() async throws {
         print("Initializing...")
-        guard let characters = await BirthdayCharacter.all() else { reportError() }
-        guard let events = await PreviewEvent.all() else { reportError() }
+        if let dataDirectory {
+            try await SekaiProtobuf.$baseURL.withValue(URL(filePath: dataDirectory)) {
+                try await generate()
+            }
+        } else {
+            try await generate()
+        }
+    }
+
+    private func generate() async throws {
+        guard let characters = await Character.all(), !characters.isEmpty else {
+            throw ValidationError.characterDataUnavailable
+        }
+        guard let events = await Event.all(), !events.isEmpty else {
+            throw ValidationError.eventDataUnavailable
+        }
         let tokyoTimeZone = TimeZone(identifier: "Asia/Tokyo")!
         var tokyoCalendar = Calendar(identifier: .gregorian)
         tokyoCalendar.timeZone = tokyoTimeZone
         
         var calendarResult = LocalizedData<String>(_jp: nil, en: nil, tw: nil, cn: nil, kr: nil)
         
-        for locale in DoriLocale.allCases {
+        for locale in SekaiLocale.allCases {
             print("Building calendar for \(locale.rawValue)...")
             
             let languageID = localizedLangIdentifier.forLocale(locale)!
             
             let builder = CalendarBuilder()
             builder.emitCalendarStart(
-                providerID: "com.memz233.Greatdori.BirthdayCalGen",
+                providerID: "-//GreatSekai//SekaiBirthdayCalGen//EN",
                 calendarName: localizedCalendarName.forLocale(locale)!
             )
             
             for character in characters {
-                guard let charaName = character.nickname.forLocale(locale)
-                        ?? character.characterName.forLocale(locale) else { continue }
+                guard let charaName = character.fullName.localizedData?[locale],
+                      let month = character.birthday?.month,
+                      let day = character.birthday?.day else { continue }
                 
                 builder.emitEventStart()
                 
-                var creationDate = Date(timeIntervalSince1970: 0)
-                if let event = events.first(where: {
-                    $0.characters.contains(where: {
-                        $0.characterID == character.id
-                    })
-                }) {
-                    // We find the first event that the character appears,
-                    // use its start date as the creation date of calendar event
-                    creationDate = event.startAt.jp!
-                }
+                // Match the original tool: start with the first event featuring
+                // the character, falling back to the game's Japanese launch day.
+                let creationDate = events.filter { $0.characters.contains(character.id) }
+                    .compactMap { $0.startDate.localizedData?.jp }.min()
+                    ?? tokyoCalendar.date(from: DateComponents(year: 2020, month: 9, day: 30))!
                 builder.emitDateTimeStamp(creationDate, timeZone: tokyoTimeZone)
-                
-                builder.emitUID(stableUUID(from: character.id | locale.rawIntValue << 8))
-                
-                let birthdayDate = character.birthday
-                var rewrittenBirthday = birthdayDate.componentsRewritten(
-                    calendar: tokyoCalendar,
-                    year: creationDate.components.year!
-                )
-                if rewrittenBirthday < creationDate {
-                    rewrittenBirthday = birthdayDate.componentsRewritten(
-                        calendar: tokyoCalendar,
-                        year: creationDate.components.year! + 1
-                    )
+                builder.emitUID(stableUUID(from: character.id, locale: locale.rawValue))
+                let year = tokyoCalendar.component(.year, from: creationDate)
+                var rewrittenBirthday: Date?
+                // Validate components so leap-day birthdays never become March 1.
+                for candidateYear in year...(year + 8) {
+                    guard let date = tokyoCalendar.date(from: DateComponents(year: candidateYear, month: month, day: day)),
+                          tokyoCalendar.component(.month, from: date) == month,
+                          tokyoCalendar.component(.day, from: date) == day,
+                          date >= tokyoCalendar.startOfDay(for: creationDate) else { continue }
+                    rewrittenBirthday = date
+                    break
                 }
+                guard let rewrittenBirthday else { throw ValidationError.invalidBirthday(character.id) }
                 builder.emitStartDate(rewrittenBirthday, in: tokyoTimeZone, allDay: true)
                 
                 builder.emitClassification(.public)
                 
                 let fixedCharaName = locale != .en ? charaName.replacing(" ", with: "") : charaName
-                let summaryName = localizedBirthdayPrompt.forLocale(locale)!.replacing("%@", with: fixedCharaName)
+                let isAnniversary = SekaiKit.Unit.virtualSinger.members.contains(character.id)
+                let prompt = isAnniversary ? localizedAnniversaryPrompt : localizedBirthdayPrompt
+                let summaryName = prompt.forLocale(locale)!.replacing("%@", with: fixedCharaName)
                 builder.emitSummary(summaryName, language: languageID)
                 
                 builder.emitTransparency(.transparent)
                 
                 builder.emitRecurrenceRule(frequency: .yearly, interval: 1, count: nil)
                 
-                let birthdayCategory = localizedCategoryName.forLocale(locale)!
-                builder.emitCategories([birthdayCategory], language: languageID)
+                let category = isAnniversary ? localizedAnniversaryCategoryName : localizedCategoryName
+                builder.emitCategories([category.forLocale(locale)!], language: languageID)
                 
                 // === Alarms ===
                 
                 // First alarm
-                builder.emitAlarmStart()
+                builder.emitAlarmStart(description: summaryName)
                 builder.emitTrigger(before: true, days: 1, hours: 0, minutes: 0, seconds: 0)
                 builder.emitAlarmEnd()
                 
                 // Second alarm
-                builder.emitAlarmStart()
+                builder.emitAlarmStart(description: summaryName)
                 builder.emitTrigger(days: 0, hours: 0, minutes: 0, seconds: 0)
                 builder.emitAlarmEnd()
                 
@@ -120,10 +138,10 @@ struct CommandLineEntry: AsyncParsableCommand {
             
             builder.emitCalendarEnd()
             
-            calendarResult._set(builder.makeResult(), forLocale: locale)
+            calendarResult[locale] = builder.makeResult()
         }
         
-        for locale in DoriLocale.allCases {
+        for locale in SekaiLocale.allCases {
             try calendarResult.forLocale(locale)!
                 .write(
                     toFile: "\(output)/BirthdayCalendar_\(locale.rawValue).ics",
@@ -139,6 +157,9 @@ struct CommandLineEntry: AsyncParsableCommand {
 enum ValidationError: Error {
     case notADirectory
     case noSuchDirectory
+    case characterDataUnavailable
+    case eventDataUnavailable
+    case invalidBirthday(Int)
 }
 
 func reportError(file: StaticString = #fileID, line: _const Int = #line, column: _const Int = #column) -> Never {
